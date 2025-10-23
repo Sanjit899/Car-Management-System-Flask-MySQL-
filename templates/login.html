@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Login Page Styling ===== */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+  }
+
+  .login-card {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+    width: 100%;
+    max-width: 420px;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .login-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 35px rgba(0, 217, 255, 0.5);
+  }
+
+  .login-card h3 {
+    color: #00d9ff;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .form-label {
+    color: #ddd;
+    font-weight: 600;
+    text-align: left;
+    display: block;
+  }
+
+  .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d9ff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus {
+    border: 1px solid #00a3cc;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .btn-success {
+    width: 100%;
+    background-color: #00d9ff;
+    border: none;
+    color: #000;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-success:hover {
+    background-color: #00a3cc;
+    color: #fff;
+  }
+
+  .login-info {
+    font-size: 0.95rem;
+    margin-top: 20px;
+    color: #bbb;
+  }
+
+  .login-info strong {
+    color: #00d9ff;
+  }
+
+  /* ===== Optional Login Illustration ===== */
+  .login-image {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  @media (max-width: 576px) {
+    .login-card {
+      padding: 30px 20px;
+    }
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-card">
+    <img src="{{ url_for('static', filename='images/car.png') }}" alt="Admin Login" class="login-image">
+
+    <h3>Admin Login</h3>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input class="form-control" name="username" placeholder="Enter username" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" name="password" type="password" placeholder="Enter password" required>
+      </div>
+
+      <button class="btn btn-success mt-3">Login</button>
+    </form>
+
+    <div class="login-info">
+      <hr class="text-secondary">
+      <p>Default Admin: <strong>admin</strong> / <strong>admin123</strong></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

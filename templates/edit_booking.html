@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+{% block title %}Edit Booking{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Edit Booking Page Styling ===== */
+  .edit-booking-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+    color: #fff;
+  }
+
+  .edit-booking-container h3 {
+    color: #00d9ff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .form-label {
+    color: #ddd;
+    font-weight: 600;
+  }
+
+  .form-control, .form-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d9ff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus, .form-select:focus {
+    border: 1px solid #00a3cc;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  .btn-primary {
+    width: 100%;
+    background-color: #00d9ff;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+
+  .btn-primary:hover {
+    background-color: #00a3cc;
+    color: #fff;
+  }
+
+  @media (max-width: 576px) {
+    .edit-booking-container {
+      padding: 20px;
+    }
+  }
+</style>
+
+<div class="edit-booking-container">
+  <h3>Edit Booking</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Select Car</label>
+      <select class="form-select" name="car_id" required>
+        {% for c in cars %}
+          <option value="{{ c.id }}" {% if booking.car_id==c.id %}selected{% endif %}>
+            {{ c.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Select Customer</label>
+      <select class="form-select" name="customer_id" required>
+        {% for cu in customers %}
+          <option value="{{ cu.id }}" {% if booking.customer_id==cu.id %}selected{% endif %}>
+            {{ cu.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Start Date</label>
+      <input class="form-control" type="date" name="start_date" required value="{{ booking.start_date }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">End Date</label>
+      <input class="form-control" type="date" name="end_date" required value="{{ booking.end_date }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" name="status">
+        <option value="active" {% if booking.status=='active' %}selected{% endif %}>Active</option>
+        <option value="completed" {% if booking.status=='completed' %}selected{% endif %}>Completed</option>
+        <option value="cancelled" {% if booking.status=='cancelled' %}selected{% endif %}>Cancelled</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

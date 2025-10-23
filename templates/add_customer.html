@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Add Customer{% endblock %}
+{% block content %}
+  <h3>Add Customer</h3>
+  <form method="post">
+    <div class="mb-3"><label class="form-label">Name</label><input class="form-control" name="name" required></div>
+    <div class="mb-3"><label class="form-label">Email</label><input class="form-control" name="email" type="email"></div>
+    <div class="mb-3"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+    <div class="mb-3"><label class="form-label">License No</label><input class="form-control" name="license_no"></div>
+    <div class="mb-3"><label class="form-label">Address</label><textarea class="form-control" name="address"></textarea></div>
+    <button class="btn btn-success">Add Customer</button>
+  </form>
+{% endblock %}

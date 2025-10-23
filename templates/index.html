@@ -1,0 +1,201 @@
+{% extends 'layout.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Home Page Styling ===== */
+  .home-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+  }
+
+  .home-text {
+    flex: 1 1 60%;
+  }
+
+  .home-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00d9ff;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .home-text p {
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.6;
+  }
+
+  .home-banner {
+    flex: 1 1 35%;
+    text-align: center;
+  }
+
+  .home-banner img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.5);
+  }
+
+  /* ===== Summary Card ===== */
+  .summary-card {
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .summary-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 25px rgba(0, 217, 255, 0.5);
+  }
+
+  .summary-card h5 {
+    font-size: 1.4rem;
+    color: #00d9ff;
+    border-bottom: 2px solid #00d9ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .summary-card p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+  }
+
+  .btn-primary {
+    background-color: #00d9ff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #00a3cc;
+  }
+
+  /* ===== Feature Section ===== */
+  .features-section {
+    margin-top: 50px;
+  }
+
+  .features-section h2 {
+    text-align: center;
+    color: #00d9ff;
+    margin-bottom: 30px;
+  }
+
+  .feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .feature-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+  }
+
+  .feature-card h3 {
+    color: #00d9ff;
+    margin-bottom: 10px;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .home-banner img {
+      margin-top: 20px;
+    }
+
+    .feature-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<div class="home-container">
+  <div class="home-text">
+    <h1>Welcome to Car Management System</h1>
+    <p>
+      Manage <b>Cars</b>, <b>Customers</b>, <b>Bookings</b>, and <b>Services</b> efficiently 
+      from one powerful admin dashboard. Keep your car rental, sales, or service business 
+      organized and smooth with real-time updates.
+    </p>
+  </div>
+  <div class="home-banner">
+    <img src="{{ url_for('static', filename='images/developer.png') }}" alt="Car Banner">
+  </div>
+</div>
+
+<div class="mt-5">
+  <div class="summary-card text-center">
+    <h5>📊 System Summary</h5>
+    <p>🚗 Cars: <strong>{{ total_cars }}</strong></p>
+    <p>👤 Customers: <strong>{{ total_customers }}</strong></p>
+    <p>📅 Bookings: <strong>{{ total_bookings }}</strong></p>
+    <a href="{{ url_for('login') }}" class="btn btn-primary mt-3">Admin Login</a>
+  </div>
+</div>
+
+<!-- ===== Features Section ===== -->
+<div class="features-section">
+  <h2>🔥 System Highlights</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/car.png') }}" alt="Car Management">
+      <h3>Car Management</h3>
+      <p>Add, update, and manage your car listings with model details, availability, and pricing.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/car2.png') }}" alt="Customer Management">
+      <h3>Customer Records</h3>
+      <p>Store and view customer details including licenses, contact info, and rental history.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/car3.png') }}" alt="Bookings">
+      <h3>Bookings & Rentals</h3>
+      <p>Manage car bookings with smart tracking, rental dates, and total cost calculation.</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/car4.png') }}" alt="Service">
+      <h3>Service Management</h3>
+      <p>Maintain vehicle service and repair records for better performance monitoring.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

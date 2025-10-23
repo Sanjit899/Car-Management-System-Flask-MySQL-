@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Car Management System</title>
+
+  <style>
+    /* ================================
+       GLOBAL STYLES
+    ================================ */
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h1, h2, h3, h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #3498db;
+    }
+
+    a:hover {
+      color: #1a73e8;
+    }
+
+    /* ================================
+       NAVBAR
+    ================================ */
+    .navbar {
+      background-color: #2c3e50;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .navbar a {
+      color: #fff;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #f1c40f;
+    }
+
+    /* ================================
+       ABOUT PAGE STYLES
+    ================================ */
+    .about-container {
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .about-header h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+    }
+
+    .about-header p {
+      font-size: 16px;
+      color: #555;
+      max-width: 900px;
+      margin: 10px auto 25px;
+      line-height: 1.6;
+    }
+
+    .about-banner {
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 40px;
+    }
+
+    .features-section {
+      margin-top: 40px;
+    }
+
+    .features-section h2 {
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .feature-card h3 {
+      margin-top: 12px;
+      color: #3498db;
+    }
+
+    .team-section {
+      margin-top: 50px;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .team-member {
+      text-align: center;
+      width: 200px;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      height: 200px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .mission-section {
+      margin-top: 50px;
+      padding: 20px;
+      background: #eaf3ff;
+      border-radius: 8px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mission-section h2 {
+      color: #2c3e50;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ================================
+       FOOTER
+    ================================ */
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background-color: #2c3e50;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo"><strong>Car Management System</strong></div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/cars">Cars</a>
+      <a href="/customers">Customers</a>
+      <a href="/bookings">Bookings</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- About Page Content -->
+  <div class="about-container">
+    <section class="about-header">
+      <h1>About Our Car Management System</h1>
+      <p>
+        The <strong>Car Management System</strong> is a full-featured web application
+        designed to simplify managing cars, customers, rentals, and service records — all in one place.
+        Built using <b>Flask</b> (Python) and <b>MySQL</b>, it’s ideal for car rental businesses,
+        showrooms, or service centers.
+      </p>
+      <img src="{{ url_for('static', filename='images/car.png') }}" alt="Car Management System" class="about-banner">
+    </section>
+
+    <section class="features-section">
+      <h2>🚀 Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/car.png') }}" alt="Car Management">
+          <h3>Car Management</h3>
+          <p>Add, update, and delete car details with ease — including models, pricing, and availability status.</p>
+        </div>
+
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/car2.png') }}" alt="Customer Records">
+          <h3>Customer Records</h3>
+          <p>Maintain all customer details like contact info, license numbers, and rental history.</p>
+        </div>
+
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/car3.png') }}" alt="Bookings">
+          <h3>Bookings & Rentals</h3>
+          <p>Handle car bookings, set rental periods, calculate costs, and monitor active or completed rentals.</p>
+        </div>
+
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/car4.png') }}" alt="Service Management">
+          <h3>Service Management</h3>
+          <p>Track maintenance and service history to ensure cars are always in top condition.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2>👨‍💻 Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="{{ url_for('static', filename='images/admin.png') }}" alt="Admin">
+          <h3>Admin</h3>
+          <p>Manages all system operations, including car listings, bookings, and service updates.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="{{ url_for('static', filename='images/developer.png') }}" alt="Developer">
+          <h3>Developer</h3>
+          <p>Designed and built this system using Python Flask, MySQL, HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section">
+      <h2>🎯 Our Mission</h2>
+      <p>
+        To provide an easy-to-use, efficient, and secure platform for car management that reduces
+        manual work and enhances business productivity.
+      </p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Car Management System | Built with ❤️ using Flask & MySQL
+  </footer>
+</body>
+</html>

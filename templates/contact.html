@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Contact Page Styling ===== */
+  .contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+    color: #fff;
+  }
+
+  .contact-container h3 {
+    color: #00d9ff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .form-label {
+    color: #ddd;
+    font-weight: 600;
+  }
+
+  .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d9ff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus {
+    border: 1px solid #00a3cc;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  textarea.form-control {
+    min-height: 120px;
+    resize: none;
+  }
+
+  .btn-primary {
+    background-color: #00d9ff;
+    border: none;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+
+  .btn-primary:hover {
+    background-color: #00a3cc;
+    color: #fff;
+  }
+
+  /* Optional banner image above the form */
+  .contact-banner {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  @media (max-width: 576px) {
+    .contact-container {
+      padding: 20px;
+    }
+  }
+</style>
+
+<div class="contact-container">
+  <img src="{{ url_for('static', filename='images/car3.png') }}" alt="Contact Us" class="contact-banner">
+
+  <h3>Contact Us</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Your Name</label>
+      <input class="form-control" name="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" name="message" placeholder="Write your message here..." required></textarea>
+    </div>
+
+    <button class="btn btn-primary">Send Message</button>
+  </form>
+</div>
+{% endblock %}

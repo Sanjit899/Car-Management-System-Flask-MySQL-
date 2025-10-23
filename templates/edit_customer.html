@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+<style>
+  /* ===== Edit Customer Page Styling ===== */
+  .customer-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+    color: #fff;
+  }
+
+  .customer-container h3 {
+    color: #00d9ff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .form-label {
+    color: #ddd;
+    font-weight: 600;
+  }
+
+  .form-control, textarea.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d9ff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus, textarea.form-control:focus {
+    border: 1px solid #00a3cc;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  textarea.form-control {
+    min-height: 100px;
+    resize: none;
+  }
+
+  .btn-primary {
+    width: 100%;
+    background-color: #00d9ff;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+
+  .btn-primary:hover {
+    background-color: #00a3cc;
+    color: #fff;
+  }
+
+  @media (max-width: 576px) {
+    .customer-container {
+      padding: 20px;
+    }
+  }
+</style>
+
+<div class="customer-container">
+  <h3>Edit Customer</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input class="form-control" name="name" required value="{{ customer.name }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="email" type="email" value="{{ customer.email }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Phone</label>
+      <input class="form-control" name="phone" value="{{ customer.phone }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">License No</label>
+      <input class="form-control" name="license_no" value="{{ customer.license_no }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <textarea class="form-control" name="address">{{ customer.address }}</textarea>
+    </div>
+
+    <button class="btn btn-primary">Save Changes</button>
+  </form>
+</div>
+{% endblock %}
